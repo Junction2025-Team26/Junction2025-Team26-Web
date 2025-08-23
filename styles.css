@@ -986,6 +986,10 @@ body {
         border-radius: 30px;
     }
     
+    .chat-interface-mockup video {
+        border-radius: 30px !important;
+    }
+    
     .feature-card .card-right-panel h3 {
         font-size: 1.5rem !important;
     }
