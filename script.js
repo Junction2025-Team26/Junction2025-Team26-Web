@@ -107,8 +107,17 @@ document.head.appendChild(style);
 
 // Image Transition Animation
 let currentImageIndex = 0;
-const images = ['a', 'b', 'c', 'd'];
+let images = ['a', 'b', 'c', 'd'];
 const transitionDuration = 2000; // 2 seconds per image
+
+// Check if mobile and adjust images array
+function checkMobileAndAdjustImages() {
+    if (window.innerWidth <= 768) {
+        images = ['a', 'b', 'd']; // Remove 'c' on mobile
+    } else {
+        images = ['a', 'b', 'c', 'd']; // Include all images on desktop
+    }
+}
 
 function showImage(imageName) {
     // Remove active class from all images
@@ -131,7 +140,15 @@ function startImageTransition() {
 }
 
 // Start the image transition when page loads
-document.addEventListener('DOMContentLoaded', startImageTransition);
+document.addEventListener('DOMContentLoaded', function() {
+    checkMobileAndAdjustImages();
+    startImageTransition();
+});
+
+// Adjust images on window resize
+window.addEventListener('resize', function() {
+    checkMobileAndAdjustImages();
+});
 
 // Console welcome message
 console.log(`

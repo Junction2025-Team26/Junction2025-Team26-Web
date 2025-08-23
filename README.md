@@ -1,37 +1,57 @@
 # 🚀 SyncTank  
 
-**Bridge the gap. Stay in sync.**  
-SyncTank is an AI-powered collaboration tool that helps teams align their **direction** and **thinking** automatically.  
-Just **drop anything** — text, screenshots, or files — and SyncTank turns it into tasks, files, and insights.  
+**Drop now. Remember later.**  
+SyncTank is your **personal AI secretary**.  
+On Mac, you can throw in anything — text, screenshots, or files.  
+On iPhone, it comes back as reminders and insights.  
 
 ---
 
 ## ✨ Why SyncTank?  
-Even with countless collaboration tools, teams still face alignment gaps:  
-- Deadlines slip.  
-- Ideas get lost.  
-- Teams misunderstand each other.  
+We all get busy. Ideas slip away, screenshots get buried, and tasks get forgotten.  
+SyncTank catches everything for you, so you can stay focused on your work.  
 
-SyncTank acts as your **AI Project Manager**, capturing everything and giving back **clear insights** — so nothing falls through the cracks.  
+- No more scattered sticky notes  
+- No more “I’ll remember this later” (and forgetting)  
+- No more switching apps to manage tasks  
+
+Just **drop it now, and let SyncTank handle the rest.**  
 
 ---
 
-## 🌟 Key Features  
+## 🌟 Core Features  
 
-- **Drop Anything**  
-  - Paste text, drag & drop files, or throw in screenshots.  
-  - SyncTank automatically categorizes them.  
+- **🖥 Mac: Throw Zone**  
+  - Shortcut opens a simple input window  
+  - Paste text, drop files, or add screenshots  
+  - Zero friction, no context switching  
 
-- **Insight Cards**  
-  - Your data turns into clean cards:  
-    - 🗓 **Plans (Schedule)** — deadlines, meetings, reminders.  
-    - 📂 **Files** — collected documents, design files, code snippets.  
-    - 💡 **Ideas** — sparks you don’t want to lose.  
+- **📱 iPhone: Reminder Hub**  
+  - AI organizes your drops into reminders and insights  
+  - Push notifications for what matters  
+  - “Here’s what you need to know now”  
 
-- **Smart Overview**  
-  - Top 3 insights always visible.  
-  - Stay focused on what matters most.  
+- **🧠 AI-Powered Organization**  
+  - Detects tasks, files, and ideas automatically  
+  - Sets reminders without manual setup  
+  - Learns your personal workflow style  
 
-- **Stay in Sync**  
-  - Detects gaps (e.g., design vs. dev mismatch).  
-  - Sends reminders and notifications across Mac & iOS.  
+---
+
+## 📸 How It Works  
+
+1. **On Mac:**  
+   Press shortcut → drop anything (text, file, screenshot).  
+
+2. **SyncTank AI:**  
+   Analyzes your input → classifies (task / file / idea).  
+
+3. **On iPhone:**  
+   Get a reminder or insight at the right time.  
+
+---
+
+## 🛠 Tech Stack  
+- **Frontend**: Swift (macOS, iOS), SwiftUI  
+- **Backend**: Node.js / Firebase (sync & notifications)  
+- **AI Engine**: Solar Pro 2 (powerful reasoning for insights)  
