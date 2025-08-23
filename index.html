@@ -228,6 +228,17 @@
         </div>
     </section>
 
+    <!-- Comments Section -->
+    <section class="comments-section">
+        <div class="container">
+            <div class="comments-header">
+                <h3>💬 Share Your Thoughts</h3>
+                <p>What do you think about Synctank? Share your feedback, ideas, or questions below!</p>
+            </div>
+            <div id="utterances-container"></div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -326,6 +337,35 @@
                 }
             }
         });
+        
+        // Load Utterances Comments System
+        function loadUtterances() {
+            // Remove existing Utterances script if any
+            const existingScript = document.querySelector('script[src*="utteranc.es"]');
+            if (existingScript) {
+                existingScript.remove();
+            }
+            
+            // Create new Utterances script
+            const script = document.createElement('script');
+            script.src = 'https://utteranc.es/client.js';
+            script.setAttribute('repo', 'gojaehyeon/obsidian-blog-comments'); // GitHub repository for comments
+            script.setAttribute('issue-term', 'title'); // Use title for issue creation
+            script.setAttribute('theme', 'github-dark'); // Dark theme matching Synctank design
+            script.setAttribute('crossorigin', 'anonymous');
+            script.async = true;
+            
+            console.log('💬 Loading Utterances comments system...');
+            
+            // Add script to utterances container
+            const container = document.getElementById('utterances-container');
+            if (container) {
+                container.appendChild(script);
+            }
+        }
+
+        // Load comments when page is ready
+        setTimeout(loadUtterances, 1000);
     </script>
 </body>
 </html>

@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.static('.')); // 현재 폴더의 정적 파일들 서빙
 
 // 전세계 서포터 카운터 (메모리에 저장)
-let globalCounter = 7;
+let globalCounter = 39;
 
 // CORS 설정 (필요시)
 app.use((req, res, next) => {
