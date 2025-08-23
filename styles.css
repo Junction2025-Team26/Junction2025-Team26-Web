@@ -583,6 +583,107 @@ body {
     }
 }
 
+/* YouTube Video Section */
+.youtube-section {
+    padding: 4rem 0;
+    background: url('img/wall.jpeg') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+.video-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-container iframe {
+    width: 100% !important;
+    height: 500px !important;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    display: block;
+    margin: 0 auto;
+}
+
+/* 강제 스타일 적용 */
+.video-container iframe[width],
+.video-container iframe[height] {
+    width: 100% !important;
+    height: 500px !important;
+}
+
+/* 극한 우선순위 */
+.video-container iframe,
+.video-container iframe[width],
+.video-container iframe[height],
+.video-container iframe[style] {
+    width: 100% !important;
+    height: 500px !important;
+    max-width: 1000px !important;
+    min-width: auto !important;
+}
+
+/* YouTube Video Section */
+.youtube-video-section {
+    padding: 0 0 4rem 0;
+    background: url('img/wall.jpeg') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    text-align: center;
+}
+
+.youtube-video-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.youtube-video-container iframe {
+    width: 100%;
+    height: 500px;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* YouTube iframe 중앙 정렬 */
+iframe[src*="youtube.com"] {
+    display: block !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+/* Mobile YouTube Video */
+@media (max-width: 768px) {
+    .youtube-section {
+        padding: 2rem 0;
+        min-height: 40vh;
+    }
+    
+    .video-container {
+        padding: 1rem;
+    }
+    
+    .video-container iframe {
+        max-width: 100%;
+        height: 250px;
+        border-radius: 15px;
+    }
+}
+
 .ai-features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1138,7 +1239,21 @@ body {
         text-align: center;
     }
     
-
+    /* YouTube Video 모바일 최적화 */
+    .youtube-video-section {
+        padding: 2rem 0;
+    }
+    
+    .youtube-video-container {
+        max-width: 95%;
+        padding: 1rem;
+        border-radius: 20px;
+    }
+    
+    .youtube-video-container iframe {
+        height: 250px;
+        border-radius: 15px;
+    }
 }
 
 @media (max-width: 480px) {
