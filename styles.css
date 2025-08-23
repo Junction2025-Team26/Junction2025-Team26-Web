@@ -19,6 +19,14 @@ body {
     padding: 0 20px;
 }
 
+/* Mobile Container */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+}
+
 /* Navigation */
 .navbar {
     position: fixed;
@@ -32,6 +40,13 @@ body {
     padding: 2rem 0;
 }
 
+/* Mobile Header Height */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 0;
+    }
+}
+
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -39,6 +54,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Mobile Nav Container */
+@media (max-width: 768px) {
+    .nav-container {
+        max-width: 100%;
+        padding: 0 15px;
+    }
 }
 
 .nav-logo {
@@ -271,6 +294,22 @@ body {
     background-clip: text;
 }
 
+/* Mobile Section Header */
+@media (max-width: 768px) {
+    .section-header h2 {
+        font-size: 2.5rem;
+    }
+    
+    .mobile-break {
+        display: block;
+    }
+}
+
+/* Desktop: Hide mobile break */
+.mobile-break {
+    display: none;
+}
+
 .section-header p {
     font-size: 1.2rem;
     color: #b9bbbe;
@@ -397,7 +436,7 @@ body {
 /* AI Power Section */
 .ai-power-section {
     padding: 80px 0;
-    background: linear-gradient(135deg, rgba(88, 101, 242, 0.08), rgba(59, 130, 246, 0.05), rgba(37, 99, 235, 0.08));
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.15), rgba(29, 78, 216, 0.2));
 }
 
 .upstage-image-container {
@@ -409,6 +448,14 @@ body {
     max-width: 15% !important;
     width: 15% !important;
     height: auto !important;
+}
+
+/* Mobile Upstage Image */
+@media (max-width: 768px) {
+    .upstage-image {
+        max-width: 40% !important;
+        width: 40% !important;
+    }
 }
 
 .ai-features-grid {
@@ -492,6 +539,24 @@ body {
     align-items: center;
     position: relative;
     overflow: hidden;
+}
+
+/* Mobile Card Layout */
+@media (max-width: 768px) {
+    .feature-card {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem;
+        min-height: auto;
+    }
+    
+    .feature-card .card-left-panel {
+        order: 1;
+    }
+    
+    .feature-card .card-right-panel {
+        order: 2;
+    }
 }
 
 /* Card Left Panel */
