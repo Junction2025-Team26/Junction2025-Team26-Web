@@ -50,9 +50,9 @@ body {
     color: #ffffff;
 }
 
-.nav-logo i {
-    color: #5865f2;
-    font-size: 1.8rem;
+.logo-image {
+    height: 32px;
+    width: auto;
 }
 
 .nav-links {
@@ -125,6 +125,11 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    background: url('img/wall.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
 }
 
 .hero-container {
@@ -142,18 +147,16 @@ body {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 1.5rem;
+    color: #ffffff;
 }
 
 .gradient-text {
-    background: linear-gradient(135deg, #5865f2, #eb459e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff;
 }
 
 .hero-description {
     font-size: 1.2rem;
-    color: #b9bbbe;
+    color: #ffffff;
     margin-bottom: 2rem;
     line-height: 1.7;
 }
@@ -170,19 +173,50 @@ body {
     align-items: center;
 }
 
-.hero-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 1.5rem;
-    backdrop-filter: blur(20px);
-    max-width: 400px;
-    animation: float 6s ease-in-out infinite;
+/* Image Transition Container */
+.image-transition-container {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    overflow: hidden;
 }
 
+.transition-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-image.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.transition-image img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+
+
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(1deg); }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(88, 101, 242, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(88, 101, 242, 0.6), 0 0 60px rgba(235, 69, 158, 0.4); }
 }
 
 .card-header {

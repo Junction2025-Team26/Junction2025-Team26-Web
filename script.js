@@ -105,10 +105,38 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// Image Transition Animation
+let currentImageIndex = 0;
+const images = ['a', 'b', 'c', 'd'];
+const transitionDuration = 2000; // 2 seconds per image
+
+function showImage(imageName) {
+    // Remove active class from all images
+    document.querySelectorAll('.transition-image').forEach(img => {
+        img.classList.remove('active');
+    });
+    
+    // Add active class to target image
+    document.querySelector(`[data-image="${imageName}"]`).classList.add('active');
+}
+
+function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    showImage(images[currentImageIndex]);
+}
+
+function startImageTransition() {
+    // Auto-advance images
+    setInterval(nextImage, transitionDuration);
+}
+
+// Start the image transition when page loads
+document.addEventListener('DOMContentLoaded', startImageTransition);
+
 // Console welcome message
 console.log(`
 🚀 Welcome to SyncTank!
-Bridge the gap. Stay in sync.
+Drop anything. Get synced.
 
 Made with ❤️ for Junction 2025 Team 26
 `);
