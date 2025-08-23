@@ -19,7 +19,7 @@
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#ai-power">Solar AI</a>
-                <a href="#cta">Join us!</a>
+                <a href="#cta">Support us!</a>
             </div>
 
         </div>
@@ -39,9 +39,9 @@
                     Your Agent manages it and sends it back as reminders on iPhone.
                 </p>
                 <div class="hero-cta">
-                    <button class="btn-primary btn-large">
-                        <i class="fas fa-rocket"></i>
-                        Download for Mac
+                    <button class="btn-primary btn-large" id="support-btn-hero">
+                        <i class="fas fa-heart"></i>
+                        Support Synctank!
                     </button>
 
                 </div>
@@ -61,6 +61,21 @@
                         <img src="img/d.png" alt="Synctank Feature D" />
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Counter Section -->
+    <section class="support-counter-section">
+        <div class="container">
+            <div class="counter-content">
+                <div class="counter-icon">
+                    <img src="img/icon.png" alt="Synctank Icon" class="icon-image">
+                </div>
+                <h1 class="counter-title">
+                    <span id="total-supporters">6</span> people are supporting Synctank!
+                </h1>
+                <p class="counter-description">Built rapidly at Junction Asia, this app showcases the power of modern AI collaboration.</p>
             </div>
         </div>
     </section>
@@ -169,11 +184,11 @@
             <div class="cta-content">
                 <h2>Experience<br>Synctank today.</h2>
                 <p>We’re showcasing live at <strong>Junction Asia</strong>.
-                    Come see how your AI Agent works in real time —
-                    opening up new possibilities for business innovation through maximized productivity.</p>
-                <button class="btn-primary btn-large">
-                    <i class="fas fa-rocket"></i>
-                    Get Started Free
+                    Come see how your AI Agent works in real time, 
+                    Opening up new possibilities for business innovation through maximized productivity.</p>
+                <button class="btn-primary btn-large" id="support-btn-cta">
+                    <i class="fas fa-heart"></i>
+                    Support Synctank!
                 </button>
             </div>
         </div>
@@ -192,11 +207,91 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Synctank. All rights reserved.</p>
+                <p>&copy; 2025 Synctank. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Support 버튼 클릭 이벤트
+        async function handleSupportClick(button) {
+            if (!button.classList.contains('supporting')) {
+                try {
+                    // 서버에 카운터 증가 요청
+                    const response = await fetch('http://baburger.xyz/api/support', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        // 버튼 상태 변경
+                        button.classList.add('supporting');
+                        button.innerHTML = '<i class="fas fa-heart"></i> Thank you for Support!';
+                        button.disabled = true;
+                        
+                        // 전세계 카운터 업데이트
+                        const counter = document.getElementById('total-supporters');
+                        if (counter) {
+                            counter.textContent = data.totalSupporters;
+                        }
+                        
+                        // 로컬 스토리지에 저장
+                        localStorage.setItem('synctank-supported', 'true');
+                    }
+                } catch (error) {
+                    console.error('Error updating counter:', error);
+                    // 에러 발생 시에도 로컬 상태는 변경
+                    button.classList.add('supporting');
+                    button.innerHTML = '<i class="fas fa-heart"></i> Thank you for Support!';
+                    button.disabled = true;
+                }
+            }
+        }
+        
+        // 페이지 로드 시 이벤트 리스너 추가
+        document.addEventListener('DOMContentLoaded', async function() {
+            const supportBtnHero = document.getElementById('support-btn-hero');
+            const supportBtnCta = document.getElementById('support-btn-cta');
+            
+            if (supportBtnHero) {
+                supportBtnHero.addEventListener('click', () => handleSupportClick(supportBtnHero));
+            }
+            
+            if (supportBtnCta) {
+                supportBtnCta.addEventListener('click', () => handleSupportClick(supportBtnCta));
+            }
+            
+            // 서버에서 현재 전세계 카운터 가져오기
+            try {
+                const response = await fetch('http://baburger.xyz/api/supporters');
+                const data = await response.json();
+                const counter = document.getElementById('total-supporters');
+                if (counter) {
+                    counter.textContent = data.totalSupporters;
+                }
+            } catch (error) {
+                console.error('Error fetching counter:', error);
+            }
+            
+            // 이전에 지원한 경우 버튼 상태 복원
+            if (localStorage.getItem('synctank-supported') === 'true') {
+                if (supportBtnHero) {
+                    supportBtnHero.classList.add('supporting');
+                    supportBtnHero.innerHTML = '<i class="fas fa-heart"></i> Thank you for Support!';
+                    supportBtnHero.disabled = true;
+                }
+                if (supportBtnCta) {
+                    supportBtnCta.classList.add('supporting');
+                    supportBtnCta.innerHTML = '<i class="fas fa-heart"></i> Thank you for Support!';
+                    supportBtnCta.disabled = true;
+                }
+            }
+        });
+    </script>
 </body>
 </html>
