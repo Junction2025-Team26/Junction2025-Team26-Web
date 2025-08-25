@@ -65,3 +65,4 @@ process.on('SIGINT', () => {
     console.log(`📊 Final supporter count: ${globalCounter}`);
     process.exit(0);
 });
+
